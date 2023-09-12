@@ -6,12 +6,14 @@ using Cinemachine;
 public class CameraSwitcher : MonoBehaviour
 {
     [SerializeField]
-    private CinemachineVirtualCamera vcam1;
+    List<CinemachineVirtualCamera> vcams = new List<CinemachineVirtualCamera>();
+    //[SerializeField]
+    //private CinemachineVirtualCamera vcam1;
 
-    [SerializeField]
-    private CinemachineVirtualCamera vcam2;
+    //[SerializeField]
+   // private CinemachineVirtualCamera vcam2;
 
-    private bool camera1Bool = true;
+    //private bool camera1Bool = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,17 +26,12 @@ public class CameraSwitcher : MonoBehaviour
         
     }
 
-    public void SwitchPriority()
+    public void SwitchPriority(int cameraIndex)
     {
-        if(camera1Bool)
+        for(int i = 0; i < vcams.Count; i++)
         {
-            vcam1.Priority = 0;
-            vcam2.Priority = 1;
-        }else
-        {
-            vcam1.Priority = 1;
-            vcam2.Priority = 0;
+            vcams[i].Priority = 0;
         }
-        camera1Bool = !camera1Bool;
+        vcams[cameraIndex].Priority = 1;
     }
 }
