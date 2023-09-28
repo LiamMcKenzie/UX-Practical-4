@@ -19,20 +19,9 @@ public class VolumeControl : MonoBehaviour
         masterValue.text = masterSlider.value.ToString("0.00");
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void AdjustSlider()
     {
-        
-    }
-
-    public void ChangeMaster()
-    {
-
+        masterSlider.value = float.Parse(masterValue.text);
     }
 }
