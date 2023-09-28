@@ -2,52 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using TMPro;
 
 public class VolumeControl : MonoBehaviour
 {
-
+    public AudioMixer mixer;
     public Slider[] volumeSliders;
     public TMP_InputField[] volumeValues;
 
-    /* public Slider masterSlider;
-    public Slider soundSlider;
-    public Slider musicSlider;
-
-    public TMP_InputField masterValue;
-    public TMP_InputField soundValue;
-    public TMP_InputField musicValue; */
+    //https://forum.unity.com/threads/solved-find-all-audiomixergroups.320913/
+    public AudioMixerGroup[] AllMixerGroups {
+        get{
+            return mixer.FindMatchingGroups(string.Empty);
+        ;}
+    }
 
     public void AdjustVolume(int volumeType)
     {
+        
+        Debug.Log(AllMixerGroups[volumeType]);
+        Debug.Log(Mathf.Log10(Mathf.Clamp(volumeSliders[volumeType].value, 0.0001f, 1f)) * (80) / 4f + 0);
+        
         if (volumeType < 0 || volumeType >= volumeSliders.Length || volumeType >= volumeValues.Length)
         {
             Debug.LogError("Invalid volume type."+ volumeType);
             return;
         }
-        //volumeSliders[]
 
-        AudioListener.volume = volumeSliders[volumeType].value;
+        //https://stackoverflow.com/questions/46529147/how-to-set-a-mixers-volume-to-a-sliders-volume-in-unity
+        //sets the volume of the chosen audio group, converts (0-1) value to linear db value
+        mixer.SetFloat(AllMixerGroups[volumeType].ToString(), Mathf.Log10(Mathf.Clamp(volumeSliders[volumeType].value, 0.0001f, 1f)) * (80) / 4f + 0);
+        
         volumeValues[volumeType].text = volumeSliders[volumeType].value.ToString("0.00");
-
-/*         switch (volumeType)
-        {
-        case 0:
-            AudioListener.volume = masterSlider.value;
-            masterValue.text = masterSlider.value.ToString("0.00");
-            break;
-        case 1:
-            AudioListener.volume = soundSlider.value;
-            soundValue.text = soundSlider.value.ToString("0.00");
-            break;
-        case 2:
-            AudioListener.volume = musicSlider.value;
-            musicValue.text = musicSlider.value.ToString("0.00");
-            break;
-        default:
-            print ("Incorrect intelligence level.");
-            break;
-        } */
     }
 
     public void AdjustSlider(int volumeType)
