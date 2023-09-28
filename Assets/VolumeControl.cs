@@ -20,10 +20,6 @@ public class VolumeControl : MonoBehaviour
 
     public void AdjustVolume(int volumeType)
     {
-        
-        Debug.Log(AllMixerGroups[volumeType]);
-        Debug.Log(Mathf.Log10(Mathf.Clamp(volumeSliders[volumeType].value, 0.0001f, 1f)) * (80) / 4f + 0);
-        
         if (volumeType < 0 || volumeType >= volumeSliders.Length || volumeType >= volumeValues.Length)
         {
             Debug.LogError("Invalid volume type."+ volumeType);
