@@ -9181,7 +9181,7 @@ GameObject:
   - component: {fileID: 356121144}
   - component: {fileID: 356121143}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Title shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11756,7 +11756,7 @@ GameObject:
   - component: {fileID: 437150517}
   - component: {fileID: 437150516}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19379,7 +19379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 728646107}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Title Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20770,8 +20770,9 @@ GameObject:
   - component: {fileID: 785182580}
   - component: {fileID: 785182579}
   - component: {fileID: 785182582}
+  - component: {fileID: 785182583}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: Quit Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20841,7 +20842,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 785182580}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 785182583}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: Exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &785182580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20925,6 +20938,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &785182583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785182577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7797dc9b1abd7374199246ec79d9ca4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &788196955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30713,7 +30738,7 @@ GameObject:
   - component: {fileID: 1186875749}
   - component: {fileID: 1186875752}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44093,7 +44118,7 @@ GameObject:
   - component: {fileID: 1656802096}
   - component: {fileID: 1656802099}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46226,8 +46251,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704015169}
-  m_LocalRotation: {x: 0.058136348, y: 0.93116915, z: -0.17090146, w: 0.31676015}
-  m_LocalPosition: {x: 120.5, y: 10.7, z: 72.8}
+  m_LocalRotation: {x: 0.08632758, y: -0.13700756, z: 0.011986613, w: 0.98672837}
+  m_LocalPosition: {x: 104.13, y: 4.93, z: 60.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
